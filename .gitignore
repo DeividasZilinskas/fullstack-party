@@ -1,0 +1,15 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.*.local
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+/logs/
+.idea/*
+node_modules/*
+filter.txt
+.DS_Store
+._.DS_Store
+.env

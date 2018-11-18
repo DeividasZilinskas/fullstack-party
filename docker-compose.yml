@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+    nginx:
+        build: './docker/nginx'
+        ports:
+            - ${LOCAL_NGINX_PORT}:80
+        volumes_from:
+            - php
+        volumes:
+            - ./logs/nginx/:/var/log/nginx
+    php:
+        build: './docker/php7-fpm'
+        volumes:
+            - ${SYMFONY_APP_PATH}:/var/www/symfony
+        environment:
+            - SSH_AUTH_SOCK
