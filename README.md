@@ -14,6 +14,7 @@ Feel free to test api using this environment.
 3. cp .env.dist .env
 4. Change LOCAL_NGINX_PORT variable in .env file to any free port on your machine
 5. Run ./start-dev.sh
+6. Run `docker-compose exec php composer install`
 6. You can know access api at 127.0.0.1:8680 (if LOCAL_NGINX_PORT=8680 in .env)
 7. To stop docker containers call ./stop-dev.sh
 
@@ -27,16 +28,16 @@ Feel free to test api using this environment.
 #### Workflow
 1. Call /api/login/ api to get github login url
 2. After callback from github you should have code and state.
-3. Call /api/login/access-token (POST) with variables code and state
-```
+3. Call /api/login/access-token (POST) with variables code and state. Example:
+`
 {
   "code": "878963c434a71cdba2ef",
   "state": "random"
 }
-```
+`
 4. Add received access-token to Authorization header
 5. Call /api/issue/ endpoint to receive all your account issues from github
-6. Call /api/issue/{owner}/{repo}/{issueId} (Without Authorization header) to receive comments for specific issue e.g:
+6. Call /api/issue/{owner}/{repo}/{issueId} (Without Authorization header) to receive comments for specific issue example:
 ```
 /api/issue/octocat/Hello-World/1
 ```

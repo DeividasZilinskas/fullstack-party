@@ -15,8 +15,8 @@
         "symfony/framework-bundle": "4.1.*",
         "symfony/serializer": "4.1.*",
         "symfony/validator": "4.1.*",
-        "symfony/yaml": "4.1.*",
-    },,
+        "symfony/yaml": "4.1.*"
+    },
     "require-dev": {
         "symfony/dotenv": "4.1.*",
         "symfony/var-dumper": "4.1.*"
