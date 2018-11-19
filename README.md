@@ -15,7 +15,7 @@ Feel free to test api using this environment. Example: `http://testio.deividasz.
 4. Change LOCAL_NGINX_PORT variable in .env file to any free port on your machine
 5. Run ./start-dev.sh
 6. Run `docker-compose exec php composer install`
-6. You can know access api at 127.0.0.1:8680 (if LOCAL_NGINX_PORT=8680 in .env)
+6. You can now access api at 127.0.0.1:8680 (if LOCAL_NGINX_PORT=8680 in .env)
 7. To stop docker containers call ./stop-dev.sh
 
 #### Known issues
