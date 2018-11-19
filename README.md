@@ -2,7 +2,7 @@
 
 #### Deployment
 * http://testio.deividasz.lt/ This is fully deployed my version of testio app.
-Feel free to test api using this environment.
+Feel free to test api using this environment. Example: `http://testio.deividasz.lt/api/login/`
 
 #### Requirements
 * Docker (recommended)
