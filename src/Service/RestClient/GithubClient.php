@@ -43,10 +43,7 @@ class GithubClient extends AbstractRestClient
      */
     public function __construct(string $githubUrl, string $githubApiUrl, string $githubClientId, string $githubClientSecret, string $githubState)
     {
-        /**
-         * TODO change to parameters
-         */
-        parent::__construct('https://api.github.com');
+        parent::__construct($githubApiUrl);
         $this->githubUrl = $githubUrl;
         $this->githubApiUrl = $githubApiUrl;
         $this->githubClientId = $githubClientId;
