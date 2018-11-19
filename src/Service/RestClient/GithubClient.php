@@ -59,7 +59,7 @@ class GithubClient extends AbstractRestClient
      */
     public function getLoginUrl(): string
     {
-        return $this->githubUrl.'/login/oauth/authorize?client_id='.$this->githubClientId.'&state='.'random';
+        return $this->githubUrl.'/login/oauth/authorize?client_id='.$this->githubClientId.'&state='.$this->githubState;
     }
 
     /**

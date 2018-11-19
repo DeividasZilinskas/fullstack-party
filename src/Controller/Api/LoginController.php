@@ -51,7 +51,7 @@ class LoginController extends AbstractController
      *
      * @return Response
      */
-    public function accessToken(Request $request, FormFactoryInterface $formFactory, GithubClient $githubClient, BasicResponse $basicResponse)
+    public function accessToken(Request $request, FormFactoryInterface $formFactory, GithubClient $githubClient, BasicResponse $basicResponse): Response
     {
         $accessToken = new AccessToken();
 

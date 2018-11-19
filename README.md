@@ -1,29 +1,42 @@
 # Great task for Great Fullstack Developer
 
-If you found this task it means we are looking for you!
+#### Deployment
+* http://testio.deividasz.lt/ This is fully deployed my version of testio app.
+Feel free to test api using this environment.
 
-> Note: To clone this repository you will need [GIT-LFS](https://git-lfs.github.com/)
+#### Requirements
+* Docker (recommended)
+* PHP 7.2, Composer and nginx/apache (only if not using docker)   
 
-## Few simple steps
+#### Installation (Docker dev)
+1. Make sure docker is running on your local machine
+2. cd to project main directory
+3. cp .env.dist .env
+4. Change LOCAL_NGINX_PORT variable in .env file to any free port on your machine
+5. Run ./start-dev.sh
+6. You can know access api at 127.0.0.1:8680 (if LOCAL_NGINX_PORT=8680 in .env)
+7. To stop docker containers call ./stop-dev.sh
 
-1. Fork this repo
-2. Do your best
-3. Prepare pull request and let us know that you are done
+#### Known issues
+* Very poor exception handling
+* No documentation
+* Github state variable is not secure. Because for all request same state variable is used.
+* No SSL on my deployment environment
+* .env.gist contains real github api info. I left it there to speed up project installation.
 
-## Few simple requirements
-
-- Design should be recreated as closely as possible.
-- Design must be responsive. Because we live in our smartphones and we will check with them for sure.
-- Use GitHub V3 REST API to receive data. [Docs here](https://developer.github.com/v3/)
-- Use popular PHP framework (SlimPHP, Lumen, Symfony, Laravel, Zend or any other)
-- Use AngularJS or ReactJS.
-- Use CSS preprocessor (SCSS preferred).
-- Browser support must be great. All modern browsers plus IE9 and above.
-- Use a Javascript task-runner. Gulp, Webpack or Grunt - it doesn't matter.
-- Do not commit the build, because we are building things on deployment.
-
-## Few tips
-
-- Structure! WE LOVE STRUCTURE!
-- Maybe You have an idea how it should interact with users? Do it! Its on you!
-- Have fun!
+#### Workflow
+1. Call /api/login/ api to get github login url
+2. After callback from github you should have code and state.
+3. Call /api/login/access-token (POST) with variables code and state
+```
+{
+  "code": "878963c434a71cdba2ef",
+  "state": "random"
+}
+```
+4. Add received access-token to Authorization header
+5. Call /api/issue/ endpoint to receive all your account issues from github
+6. Call /api/issue/{owner}/{repo}/{issueId} (Without Authorization header) to receive comments for specific issue e.g:
+```
+/api/issue/octocat/Hello-World/1
+```
